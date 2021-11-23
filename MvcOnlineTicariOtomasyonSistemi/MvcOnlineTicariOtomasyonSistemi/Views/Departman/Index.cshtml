@@ -1,0 +1,61 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Kategoriler</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                Departmanlar Listesi
+
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>DEPARTMAN ADI</th>
+                                <th>GÜNCELLE</th>
+                                <th>SİL</th>
+                                <th>PERSONEL DETAYLARI</th>
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>DEPARTMAN ADI</th>
+                                <th>GÜNCELLE</th>
+                                <th>SİL</th>
+                                <th>PERSONEL DETAYLARI</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var d in Model)
+                            {
+                                <tr>
+                                    <td>@d.DepartmanAd</td>
+                                    <td><a href="/Departman/DepartmanGetir/@d.DepartmanId" class="btn btn-success">GÜNCELLE</a></td>
+                                    <td><a href="/Departman/DepartmanSil/@d.DepartmanId" class="btn btn-danger">SİL</a></td>
+                                    <td><a href="/Departman/DepartmanDetay/@d.DepartmanId" class="btn btn-warning">PERSONEL DETAYLARI</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Departman/DepartmanEkle/" class="btn btn-primary">YENİ OLUŞTUR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+

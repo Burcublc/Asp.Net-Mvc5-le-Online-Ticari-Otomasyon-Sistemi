@@ -1,0 +1,51 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.Urun
+    @{
+        ViewBag.Title = "UrunGetir";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4"></h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Ürün Güncelleme Sayfası</li>
+            </ol>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("UrunGuncelle", "Urun", FormMethod.Post))
+                    {
+                 
+                            <font size="4" color="red">@Html.Label("Ürün Adı:")</font>
+                            @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+                            <br />
+                            <font size="4" color="red">@Html.Label("Marka Adı:")</font>
+                            @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+                            <br />
+                            <font size="4" color="red">@Html.Label("Stok Sayısı:")</font>
+                            @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+                            <br />
+                            <font size="4" color="red">@Html.Label("Alış Fiyatı:")</font>
+                            @Html.TextBoxFor(x => x.AlisFiyati, new { @class = "form-control" })
+                            <br />
+                            <font size="4" color="red">@Html.Label("Satış Fiyatı:")</font>
+                            @Html.TextBoxFor(x => x.SatisFiyati, new { @class = "form-control" })
+                            <br />
+                            <font size="4" color="red">@Html.Label("Durum:")</font>
+                            @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+                            <br />
+                            <font size="4" color="red">@Html.Label("Ürün Görsel:")</font>
+                            @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control" })
+                            <br />
+                            <font size="4" color="red">@Html.Label("Kategori Adı:")</font>
+                            @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+                            <br />
+                            @Html.HiddenFor(x => x.UrunId)
+                            <button class="btn btn-primary">GÜNCELLE</button>
+
+                    }
+                    </div>
+            </div>
+    </main>

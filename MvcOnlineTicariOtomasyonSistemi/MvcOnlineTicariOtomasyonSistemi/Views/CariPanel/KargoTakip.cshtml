@@ -1,0 +1,68 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<KargoDetay>
+@{
+    ViewBag.Title = "KargoTakip";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Kargo Arama Sayfası</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                @using (Html.BeginForm("KargoTakip", "CariPanel", FormMethod.Get))
+                {
+                    <p>
+                        Kargo Takip No: @Html.TextBox("p")
+                        <input type="submit" value="Ara" placeholder="Kargo Takip Kodunu Giriniz.."/>
+                    </p>
+                }
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>TAKİP KODU</th>
+                                <th>AÇIKLAMA</th>
+                                <th>PERSONEL</th>
+                                <th>ALICI</th>
+                                <th>TARİH</th>
+                                <th>DETAYLAR</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>TAKİP KODU</th>
+                                <th>AÇIKLAMA</th>
+                                <th>PERSONEL</th>
+                                <th>ALICI</th>
+                                <th>TARİH</th>
+                                <th>DETAYLAR</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var k in Model)
+                            {
+                                <tr>
+                                    <td>@k.TakipKodu</td>
+                                    <td>@k.Aciklama</td>
+                                    <td>@k.Personel</td>
+                                    <td>@k.Alici</td>
+                                    <td>@k.Tarih</td>
+                                    <td><a href="/CariPanel/KargoDetay/@k.TakipKodu" class="btn btn-success">DETAYLAR</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

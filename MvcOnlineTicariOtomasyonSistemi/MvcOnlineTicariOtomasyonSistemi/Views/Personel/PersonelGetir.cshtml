@@ -1,0 +1,40 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Personel Güncelleme Sayfası</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <font size="4" color="red">@Html.Label("Personel Adı:")</font>
+                    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+                    @Html.HiddenFor(x => x.PersonelId)
+                    <br />
+                    <font size="4" color="red">@Html.Label("Personel Soyadı:")</font>
+                    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Personel Görsel:")</font>
+                    @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })*@
+                    <input type="file" name="PersonelGorsel" />
+                    <br />
+                    <font size="4" color="red">@Html.Label("Departman Adı:")</font>
+                    @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.d, new { @class = "form-control" })
+                    <br />
+
+                    <button class="btn btn-primary">GÜNCELLE</button>
+                }
+            </div>
+        </div>
+</main>
+

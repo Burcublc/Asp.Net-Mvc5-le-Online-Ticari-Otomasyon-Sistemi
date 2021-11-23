@@ -1,0 +1,63 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Kategoriler</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                Kategoriler Listesi
+                
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>KATEGORI ADI</th>
+                                <th>GÜNCELLE</th>
+                                <th>SİL</th>
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>KATEGORI ADI</th>
+                                <th>GÜNCELLE</th>
+                                <th>SİL</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var k in Model)
+                            {
+                                <tr>
+                                    <td>@k.KategoriAd</td>
+                                    <td><a href="/Kategori/KategoriGetir/@k.KategoriId" class="btn btn-success">GÜNCELLE</a></td>
+                                    <td><a href="/Kategori/KategoriSil/@k.KategoriId" class="btn btn-danger">SİL</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!--------->
+                    @Html.PagedListPager((IPagedList)Model , sayfa=>Url.Action("Index",new { sayfa }),new PagedListRenderOptions
+                    {
+                      LiElementClasses =new List<string> 
+                      { "page-link" }
+                    }) <!--Sayfalama İşlemi-->
+                    <a href="/Kategori/KategoriEkle/" class="btn btn-primary">YENİ OLUŞTUR</a>
+                </div>
+            </div>
+        </div>
+     </div>
+</main>
+

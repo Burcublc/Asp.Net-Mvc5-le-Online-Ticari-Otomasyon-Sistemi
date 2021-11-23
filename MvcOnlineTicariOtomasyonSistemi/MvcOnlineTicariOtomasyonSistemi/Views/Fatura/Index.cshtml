@@ -1,0 +1,98 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Faturalar</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                Faturalar Listesi
+
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>FATURA SERİ/SIRA NO</th>
+                                <th>TARİH</th>
+                                <th>VERGİ DAİRESİ</th>
+                                <th>SAAT</th>                              
+                                <th>TESLİM EDEN</th>
+                                <th>TESLİM ALAN</th>
+                                <th>TOPLAM</th>
+                                <th>DETAYLAR</th>
+                                <th>DETAYLAR2</th>
+                                <th>GÜNCELLE</th>
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>FATURA SERİ/SIRA NO</th>
+                                <th>TARİH</th>
+                                <th>VERGİ DAİRESİ</th>
+                                <th>SAAT</th>
+                                <th>TESLİM EDEN</th>
+                                <th>TESLİM ALAN</th>
+                                <th>TOPLAM</th>
+                                <th>DETAYLAR</th>
+                                <th>DETAYLAR2</th>
+                                <th>GÜNCELLE</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var f in Model)
+                            {
+                                <tr>
+                                    <td>@f.FaturaSeriNo@f.FaturaSiraNo</td>
+                                    <td>@Convert.ToDateTime(f.FaturaTarih).ToString("dd/MM/yyyy")</td>
+                                    <td>@f.VergiDairesi</td>
+                                    <td>@f.FaturaSaati</td>                                    
+                                    <td>@f.TeslimEden</td>
+                                    <td>@f.TeslimAlan</td>
+                                    <td>@f.Toplam ₺</td>
+                                    <td><a href="/Fatura/FaturaDetay/@f.FaturaId" class="btn btn-warning">DETAYLAR</a></td>
+                                    <td>
+                                        <button type="button" class="btn btn default" style="background-color:#d95151;color:white" data-toggle="modal" data-target="#Modal1">Detaylar</button>
+                 
+                                        <div class="modal" id="Modal1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        
+                                                        @Html.Action("Partial1", "Fatura")
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><a href="/Fatura/FaturaGetir/@f.FaturaId" class="btn btn-success">GÜNCELLE</a></td>                                   
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Fatura/FaturaEkle/" class="btn btn-primary">YENİ FATURA GİRİŞİ</a>
+                    <br/>
+                    <br/>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+

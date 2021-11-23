@@ -1,0 +1,50 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "DepartmanPersonelSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">@ViewBag.prslad  Personelinin Satış Hareketleri</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+            </div>
+            <div class="card-body">
+
+                <table class="table table-hover" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>TARİH</th>
+                            <th>ADET</th>
+                            <th>FİYAT</th>
+                            <th>TOPLAM TUTAR</th>
+                            <th>MÜŞTERİ ADI</th>
+                            <th>ÜRÜN ADI</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var s in Model)
+                        {
+                            <tr>
+                                <td>@s.Tarih</td>
+                                <td>@s.Adet</td>
+                                <td>@s.Fiyat ₺</td>
+                                <td>@s.ToplamTutar ₺</td>
+                                <td>@s.Cariler.CariAd  @s.Cariler.CariSoyad</td>
+                                <td>@s.Urun.UrunAd</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Departman/SatisListesiYazdir/@ViewBag.prslid" class="btn btn-default" style="background-color:burlywood">YAZDIR</a>
+            </div>
+        </div>
+</main>
+

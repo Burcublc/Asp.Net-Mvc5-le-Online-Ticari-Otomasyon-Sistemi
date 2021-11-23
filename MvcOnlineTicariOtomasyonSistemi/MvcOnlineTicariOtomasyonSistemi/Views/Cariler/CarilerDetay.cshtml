@@ -1,0 +1,51 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<SatisHareket>
+
+@{
+    ViewBag.Title = "CarilerDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">@ViewBag.mstrad 'nin Satış Hareketleri</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+            </div>
+            <div class="card-body">
+
+                <table class="table table-hover" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>TARİH</th>
+                            <th>ADET</th>
+                            <th>FİYAT</th>
+                            <th>TOPLAM TUTAR</th>
+                            <th>SATIŞ GÖREVLİSİ</th>
+                            <th>ÜRÜN ADI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var m in Model)
+                        {
+                            <tr>
+                                <td>@m.Tarih</td>
+                                <td>@m.Adet</td>
+                                <td>@m.Fiyat</td>
+                                <td>@m.ToplamTutar</td>
+                                <td>@m.Personel.PersonelAd @m.Personel.PersonelSoyad</td>
+                                <td>@m.Urun.UrunAd</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Cariler/AlisHareketleriYazdir/@ViewBag.mstrid" class="btn btn-default" style="background-color:burlywood">YAZDIR</a>
+            </div>
+        </div>
+</main>
+
+

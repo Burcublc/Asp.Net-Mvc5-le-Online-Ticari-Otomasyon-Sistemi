@@ -1,0 +1,48 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.Faturalar
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Fatura Güncelleme Sayfası</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post))
+                {
+                    @Html.HiddenFor(x => x.FaturaId)
+                    <font size="4" color="red">@Html.Label("Fatura Seri No:")</font>
+                    @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Fatura Sıra No:")</font>
+                    @Html.TextBoxFor(x => x.FaturaSiraNo, new { @class = "form-control" })
+                    <br /><font size="4" color="red">@Html.Label("Fatura Tarihi:")</font>
+                    @Html.TextBoxFor(x => x.FaturaTarih, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Fatura Saati:")</font>
+                    @Html.TextBoxFor(x => x.FaturaSaati, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Vergi Dairesi:")</font>
+                    @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Teslim Eden Adı ve Soyadı:")</font>
+                    @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Teslim Alan Adı ve Soyadı:")</font>
+                    @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-primary">GÜNCELLE</button>
+                }
+            </div>
+        </div>
+</main>
+
+
+

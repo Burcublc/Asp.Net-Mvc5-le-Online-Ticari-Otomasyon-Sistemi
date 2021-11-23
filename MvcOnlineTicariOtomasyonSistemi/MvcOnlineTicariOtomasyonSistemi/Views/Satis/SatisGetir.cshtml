@@ -1,0 +1,45 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "SatisGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Satış Güncelleme Sayfası</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("SatisGuncelle", "Satis", FormMethod.Post))
+                {
+                    @Html.HiddenFor(x=>x.SatisId)
+                    <font size="4" color="red">@Html.Label("Personel Adı:")</font>
+                    @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.prsl, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Müşteri Adı:")</font>
+                    @Html.DropDownListFor(x => x.CariId, (List<SelectListItem>)ViewBag.cr, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Adet:")</font>
+                    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control"})
+                    <br />
+                    <font size="4" color="red">@Html.Label("Ürün:")</font>
+                    @Html.DropDownListFor(x => x.UrunId, (List<SelectListItem>)ViewBag.urn, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Fiyat:")</font>
+                    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Toplam Tutar:")</font>
+                    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-primary">GÜNCELLE</button>
+                }
+            </div>
+        </div>
+</main>
+
+

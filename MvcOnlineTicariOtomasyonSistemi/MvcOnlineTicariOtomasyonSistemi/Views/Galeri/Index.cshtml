@@ -1,0 +1,52 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<main>
+    <div class="container-fluid">
+        <div id="menu-container">
+            <div class="divs">
+                <div class="content homepage">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>Resimler</h1>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="row templatemo_portfolio">                          
+                             @foreach (var u in Model)
+                             {
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="gallery-item">
+                                        <img src="@u.UrunGorsel" style="width:300px;height:300px"/>
+                                        <div class="overlay">
+                                            <a href="@u.UrunGorsel" data-rel="lightbox" class="fa fa-arrows-alt"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                             }
+                        </div>                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="~/Resim/css/animate.css">
+<link rel="stylesheet" href="~/Resim/css/font-awesome.min.css">
+<link rel="stylesheet" href="~/Resim/css/templatemo_misc.css">
+<link rel="stylesheet" href="~/Resim/css/templatemo_style.css">
+<script src="~/Resim/js/jquery-1.10.2.min.js"></script>
+<script src="~/Resim/js/jquery.singlePageNav.js"></script>
+<script src="~/Resim/js/jquery.flexslider.js"></script>
+<script src="~/Resim/js/custom.js"></script>
+<script src="~/Resim/js/jquery-1.10.2.min.js"></script>
+<script src="~/Resim/js/jquery.lightbox.js"></script>
+<script src="~/Resim/js/templatemo_custom.js"></script>
+<script src="~/Resim/js/jquery-git2.js"></script>

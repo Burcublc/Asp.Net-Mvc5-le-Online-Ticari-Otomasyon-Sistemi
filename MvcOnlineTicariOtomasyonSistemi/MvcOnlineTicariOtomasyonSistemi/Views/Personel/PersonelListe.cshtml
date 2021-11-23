@@ -1,0 +1,74 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<Personel>
+@{
+    ViewBag.Title = "PersonelListe";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br/>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h3>Personel Listesi</h3>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                   
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="content">
+        <div class="card card-solid">
+            <div class="card-body pb-0">
+                <div class="row d-flex align-items-stretch">
+                    @foreach (var p in Model)
+                    {
+                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                        <div class="card bg-light">
+                            <div class="card-header text-muted border-bottom-0">
+                                @p.PersonelBrans
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><b>@p.PersonelAd @p.PersonelSoyad</b></h2>
+                                        <p class="text-muted text-sm"><b>Hakkında: </b> @p.PersonelBilgi </p>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Adres:@p.PersonelAdres</li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Tel #: @p.PersonelTel</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img src="@p.PersonelGorsel" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-right">                              
+                                    <a href="/Departman/DepartmanPersonelSatis/@p.DepartmanId" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-user"></i>SATIŞ GEÇMİŞİ
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="~/Web2/plugins/jquery/jquery.min.js"></script>
+    <script src="~/Web2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Web2/dist/js/adminlte.min.js"></script>
+    <script src="~/Web2/dist/js/demo.js"></script>
+    <link rel="stylesheet" href="~/Web2/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Web2/dist/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+

@@ -1,0 +1,48 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.KargoDetay
+@{
+    ViewBag.Title = "KargoEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Kargo Ekleme Sayfası</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+            </div>
+            <div class="card-body">
+                
+                    <form class="form-group" method="post">
+                        <font size="4" color="red">@Html.Label("Takip Kodu:")</font>
+                        <input type="text" value="@ViewBag.takipkod" name="TakipKodu" class="form-control" readonly />
+                        <br />
+                        <font size="4" color="red">@Html.Label("Personel Adı ve Soyadı:")</font>
+                        @Html.TextBoxFor(x => x.Personel, new { @class = "form-control" })
+                        <br />
+                        <font size="4" color="red">@Html.Label("Alıcı Adı ve Soyadı:")</font>
+                        @Html.TextBoxFor(x => x.Alici, new { @class = "form-control" })
+                        <br />
+                        <font size="4" color="red">@Html.Label("Tarih:")</font>
+                        <input type="date" class="date" name="Tarih" />
+                        <br />
+                        <font size="4" color="red">@Html.Label("Açıklama:")</font>
+                        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+                        <br />
+                        <font size="4" color="red">@Html.Label("QR Kodu:")</font>
+                        @if (ViewBag.karekodimage != null)
+                        {
+                            <img src="@ViewBag.karekodimage" alt="" style="width:200px;height:200px" />                            
+                        }
+                        <br />
+                        <button class="btn btn-info">SATIŞ YAP</button>
+                    </form>
+      
+                </div>
+        </div>
+</main>

@@ -1,0 +1,76 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br/>
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Satış Hareketleri </li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                Satış Hareket Listesi
+
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <br/>
+                    <table id="tbl1" class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>TARİH</th>
+                                <th>ADET</th>
+                                <th>FİYAT</th>
+                                <th>TOPLAM TUTAR</th>
+                                <th>CARİ AD</th>
+                                <th>PERSONEL ADI</th>
+                                <th>ÜRÜN ADI</th>
+                                <th>GÜNCELLE</th>
+                                <th>DETAYLAR</th>
+
+                            </tr>
+                        </thead>
+                     
+                        <tbody>
+                            @foreach (var s in Model)
+                            {
+                                <tr>
+                                    <td>@s.SatisId</td>
+                                    <td>@Convert.ToDateTime(s.Tarih).ToString("dd/MM/yyyy")</td>
+                                    <td>@s.Adet</td>
+                                    <td>@s.Fiyat</td>
+                                    <td>@s.ToplamTutar</td>
+                                    <td>@s.Cariler.CariAd @s.Cariler.CariSoyad</td>
+                                    <td>@s.Personel.PersonelAd @s.Personel.PersonelSoyad</td>
+                                    <td>@s.Urun.UrunAd</td>
+                                    <td><a href="/Satis/SatisGetir/@s.SatisId" class="btn btn-success">GÜNCELLE</a></td>
+                                    <td><a href="/Satis/SatisDetay/@s.SatisId" class="btn btn-warning">DETAYLAR</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Satis/YeniSatis/" class="btn btn-primary">YENİ SATIŞ YAP</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

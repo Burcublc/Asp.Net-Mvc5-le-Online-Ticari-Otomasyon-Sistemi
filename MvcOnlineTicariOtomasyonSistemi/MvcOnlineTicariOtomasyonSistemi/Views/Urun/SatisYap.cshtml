@@ -1,0 +1,57 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "SatisYap";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Satış Yap Sayfası</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+            </div>
+            <div class="card-body">
+                <form class="form-group" method="post">
+                    <font size="4" color="red">@Html.Label("Ürün:")</font>
+                    <input type="text" name="UrunId" value="@ViewBag.dgr3" class="form-control" readonly/>
+                    <br />
+                    <font size="4" color="red">@Html.Label("Personel Adı ve Soyadı:")</font>
+                    @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Müşteri Adı:")</font>
+                    @Html.DropDownListFor(x => x.CariId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Adet:")</font>
+                    <input type="number" name="Adet" class="form-control" id="s1" onchange="carp()" max="10" min="1" placeholder="Adet Girin.."/>
+                    <br />
+                    <font size="4" color="red">@Html.Label("Fiyat:")</font>
+                    <input type="text" name="Fiyat" value="@ViewBag.dgr4" id="s2" class="form-control" onkeyup="carp()" />
+                    <br />
+                    <font size="4" color="red">@Html.Label("Toplam Tutar:")</font>
+                    <input type="text" name="ToplamTutar" id="s3" class="form-control" readonly/>
+                    <br />
+                    <button class="btn btn-info">SATIŞ YAP</button>
+                </form>
+            </div>
+        </div>
+</main>
+@*<input type="text" id="txt1" onkeyup="carp();" />
+<input type="text" id="txt2" onkeyup="carp();" />
+<input type="text" id="txt3"  />*@
+<script>
+    function carp() {
+        var sayi1 = document.getElementById('s1').value;
+        var sayi2 = document.getElementById('s2').value;
+        var sonuc = parseInt(sayi1) * parseInt(sayi2);
+        if (!isNaN(sonuc))
+        {
+            document.getElementById('s3').value = sonuc;
+        }
+    }
+</script>
+
+

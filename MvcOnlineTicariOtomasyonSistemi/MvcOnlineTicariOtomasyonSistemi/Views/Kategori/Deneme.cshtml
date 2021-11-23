@@ -1,0 +1,55 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.Class2
+@{
+    ViewBag.Title = "Deneme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<script>
+    $(function () {
+        $('#DrpKategori').change(function () {
+            var id = $('#DrpKategori').val();
+            $.ajax({
+                url: '/Kategori/UrunGetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#DrpUrun').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#DrpUrun').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Kategoriler-Ürünler</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                <h3>Kategoriler-Ürünler</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    @Html.Label("Kategoriler")
+                    @Html.DropDownList("DrpKategori", Model.Kategoriler, "---Kategori Seçiniz----", new { @class = "form-control" })
+                    <br/>
+                    @Html.Label("Ürünler")
+                    @Html.DropDownList("DrpUrun",Model.Urunler,"----Ürün Seçiniz----",new {@class="form-control" })
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+

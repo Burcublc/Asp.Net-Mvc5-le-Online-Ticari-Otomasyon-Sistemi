@@ -1,0 +1,149 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<Mesajlar>
+@{
+    ViewBag.Title = "MesajDetay";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<br />
+<br />
+
+        <div class="row">
+            <div class="col-md-3">
+                <a href="/CariPanel/YeniMesaj/" class="btn btn-primary btn-block mb-3">Yeni Mesaj Oluştur</a>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Klasörler</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item active">
+                                <a href="/CariPanel/GelenMesajlar/" class="nav-link">
+                                    <i class="fas fa-inbox"></i> Gelen Mesajlar
+                                    <span class="badge bg-gradient-green">@ViewBag.d1</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/CariPanel/GonderilenMesajlar/" class="nav-link">
+                                    <i class="far fa-envelope"></i> Gönderilen Mesajlar
+                                    <span class="badge bg-gradient-cyan">@ViewBag.d2</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-file-alt"></i> Taslaklar
+                                    <span class="badge bg-gradient-gray">0</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-filter"></i> Okunmuş Mesajlar
+                                    <span class="badge bg-gradient-fuchsia">0</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-trash-alt"></i> Çöp Kutusu
+                                    <span class="badge bg-gradient-maroon">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Filtreler</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle text-danger"></i>
+                                    Önemli Mesajlar
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle text-warning"></i> Promosyonlar
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle text-primary"></i>
+                                    Sosyal
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Mail Detayları</h3>
+
+                        <div class="card-tools">
+                            <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
+                            <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        @foreach (var m in Model)
+                        {
+                            <div class="mailbox-read-info">
+                                <h5>Konu:@m.Konu</h5>
+                                <h6>
+                                    Gönderici: @m.Kimden
+                                    <span class="mailbox-read-time float-right">@m.Tarih.ToShortDateString()</span>
+                                </h6>
+                            </div>
+                            <div class="mailbox-controls with-border text-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Delete">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
+                                        <i class="fas fa-reply"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
+                                        <i class="fas fa-share"></i>
+                                    </button>
+                                </div>
+                                <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                            </div>
+                            <div class="mailbox-read-message">
+                                @m.Icerik
+                            </div>
+                        }
+
+                    </div>                    
+                    <div class="card-footer">
+                        <div class="float-right">
+                            <button type="button" class="btn btn-default"><i class="fas fa-reply"></i>Yanıtla</button>
+                            <button type="button" class="btn btn-default"><i class="fas fa-share"></i>İlet</button>
+                        </div>
+                        <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i>Sil</button>
+                        <button type="button" class="btn btn-default"><i class="fas fa-print"></i>Yazdır</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+
+
+
+

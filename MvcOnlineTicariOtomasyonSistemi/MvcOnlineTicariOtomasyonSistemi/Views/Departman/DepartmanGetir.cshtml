@@ -1,0 +1,29 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.Departman
+    @{
+        ViewBag.Title = "DepartmanGetir";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4"></h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Kategori Güncelleme Sayfası</li>
+            </ol>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("DepartmanGuncelle", "Departman", FormMethod.Post))
+                    {
+                        <font size="4" color="red">@Html.Label("Departman Adı:")</font>
+                        @Html.TextBoxFor(x=>x.DepartmanAd,new { @class="form-control"})
+                        @Html.HiddenFor(x=>x.DepartmanId)
+                        <br/>
+                        <button class="btn btn-primary">GÜNCELLE</button>
+                    }
+                </div>
+            </div>
+    </main>
+

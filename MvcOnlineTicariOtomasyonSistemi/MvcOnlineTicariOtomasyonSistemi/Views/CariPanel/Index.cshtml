@@ -1,0 +1,108 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<Cariler>  
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+   
+<br/>          
+            
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card card-primary card-outline">
+                                <div class="card-body box-profile">
+
+                                    @foreach (var c in Model)
+                                    {
+                                            
+                                            <div class="text-center">
+                                               
+                                                <img src="@c.Gorsel" class="profile-user-img img-fluid img-circle" >
+                                                
+                                            </div>
+                              
+                                            <h3 class="profile-username text-center">@c.CariAd @c.CariSoyad</h3>
+
+                                            <p class="text-muted text-center">@c.CariMail</p>
+                                            }
+                                            <ul class="list-group list-group-unbordered mb-3">
+                                                <li class="list-group-item">
+                                                    <b>Satın Alınan Ürün Sayısı</b> <a class="float-right">@ViewBag.d1</a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Kargoda Olan Ürün Sayısı</b> <a class="float-right">@ViewBag.d2 </a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Toplam Harcama</b> <a class="float-right">@ViewBag.d3 ₺</a>
+                                                </li>
+                                            </ul>
+                                           
+                                    </div>
+                            </div>
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Hakkımda</h3>
+                                </div>
+                                <div class="card-body">
+                                    @foreach (var c in Model)
+                                    {
+                                        <strong><i class="fas fa-book mr-1"></i> Şehir</strong>
+
+                                        <p class="text-muted">
+                                            @c.CariSehir
+                                        </p>
+
+                                        <hr>
+
+                                        <strong><i class="fas fa-map-marker-alt mr-1"></i> Meslek</strong>
+
+                                        <p class="text-muted">@c.Meslek</p>
+
+                                        <hr>
+
+                                        <strong><i class="fas fa-pencil-alt mr-1"></i> Telefon</strong>
+
+                                        <p class="text-muted">@c.Telefon</p>
+                                        <hr>
+
+                                       
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card">
+                                <div class="card-header p-2">
+                                    <ul class="nav nav-pills">
+                                        <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Mail Kutusu</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Duyurular</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content">
+
+
+                                        <div class="active tab-pane" id="activity">
+
+                                            @Html.Action("MesajListele", "CariPanel")
+
+
+                                        </div>
+
+                                        <div class="tab-pane" id="timeline">
+                                            @Html.Action("Duyurular","CariPanel")
+                                        </div>
+
+
+                                        <div class="tab-pane" id="settings">
+                                            @Html.Action("CariBilgisiGetir", "CariPanel")
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+  

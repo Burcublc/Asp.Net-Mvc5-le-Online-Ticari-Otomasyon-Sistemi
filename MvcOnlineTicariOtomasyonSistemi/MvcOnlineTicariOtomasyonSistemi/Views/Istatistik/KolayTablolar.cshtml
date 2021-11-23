@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "KolayTablolar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<div class="wrapper">
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+
+                    @Html.Action("Partial4", "Istatistik")
+
+                    <br />
+                    @Html.Action("Partial", "Istatistik")
+                </div>
+                @Html.Action("Partial1", "Istatistik")
+            </div>
+            @Html.Action("Partial2","Istatistik")
+            @Html.Action("Partial3","Istatistik")
+        </div>
+    </section>
+</div>
+<script src="~/Web2/plugins/jquery/jquery.min.js"></script>
+<script src="~/Web2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Web2/dist/js/adminlte.min.js"></script>
+<script src="~/Web2/dist/js/demo.js"></script>
+
+<link rel="stylesheet" href="~/Web2/plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="~/Web2/dist/css/adminlte.min.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+

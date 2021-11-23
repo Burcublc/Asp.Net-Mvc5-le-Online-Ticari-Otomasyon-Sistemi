@@ -1,0 +1,43 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.Cariler
+@{
+    ViewBag.Title = "CarilerGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Cari Güncelleme Sayfası</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("CarilerGuncelle", "Cariler", FormMethod.Post))
+                {
+                    <font size="4" color="red">@Html.Label("Adı:")</font>
+                    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.CariAd, "", new { @style = "color:black" })
+                    @Html.HiddenFor(x => x.CariId)
+                    <br />
+                    <font size="4" color="red">@Html.Label("Soyadı:")</font>
+                    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @style = "color:black" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Şehir:")</font>
+                    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Mail Adresi:")</font>
+                    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Durum:")</font>
+                    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-primary">GÜNCELLE</button>
+                }
+            </div>
+        </div>
+</main>
+

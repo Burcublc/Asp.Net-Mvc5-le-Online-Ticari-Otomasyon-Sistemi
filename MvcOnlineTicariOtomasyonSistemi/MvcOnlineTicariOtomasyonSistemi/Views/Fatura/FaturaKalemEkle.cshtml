@@ -1,0 +1,42 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.FaturaKalem
+@{
+    ViewBag.Title = "FaturaKalemEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Fatura Kalem Ekleme Sayfası</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+            </div>
+            <div class="card-body">
+                
+                <form class="form-group" method="post">
+                    <font size="4" color="red">@Html.Label("Açıklama:")</font>
+                    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Adet:")</font>
+                    @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control" })
+                    <br /><font size="4" color="red">@Html.Label("Birim Fiyatı:")</font>
+                    @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Tutar:")</font>
+                    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })
+                    <br />
+                    <font size="4" color="red">@Html.Label("Fatura Id:")</font>
+                    @Html.TextBoxFor(x => x.FaturaId, new { @class = "form-control" })
+
+                    <br />
+                    <button class="btn btn-info">KAYDET</button>
+                </form>
+            </div>
+        </div>
+</main>
+
+
+

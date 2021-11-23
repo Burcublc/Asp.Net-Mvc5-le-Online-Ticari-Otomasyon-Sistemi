@@ -1,0 +1,63 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "SatisDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Satış Detay Sayfası</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+            </div>
+            <div class="card-body">
+                <font size="4" color="red">@Html.Label("Satış No:", new { @class = "Form-control" })</font>
+                <font size="4" color="black">@Html.DisplayTextFor(x => x.SatisId)</font>
+                <br />
+                <hr />
+                <br />
+                <font size="4" color="red">@Html.Label("Personel Adı ve Soyadı:", new { @class = "Form-control" })</font>
+                <font size="4" color="black">@Html.DisplayTextFor(x => x.Personel.PersonelAd) @Html.DisplayTextFor(x => x.Personel.PersonelSoyad)</font>
+                <br />
+                <hr />
+                <br />
+                <font size="4" color="red">@Html.Label("Müşteri Adı ve Soyadı:", new { @class = "Form-control" })</font>
+                <font size="4" color="black">@Html.DisplayTextFor(x => x.Cariler.CariAd) @Html.DisplayTextFor(x => x.Cariler.CariSoyad)</font>
+                <br />
+                <hr />
+                <br />
+                <font size="4" color="red">@Html.Label("Ürün Adı:", new { @class = "Form-control" })</font>
+                <font size="4" color="black">@Html.DisplayTextFor(x => x.Urun.UrunAd)</font>
+                <br />
+                <hr />
+                <br />
+                <font size="4" color="red">@Html.Label("Satış Tarihi:", new { @class = "Form-control" })</font>
+                <font size="4" color="black">@Html.DisplayTextFor(x => x.Tarih)</font>
+                <br />
+                <hr />
+                <br />
+                <font size="4" color="red">@Html.Label("Adet:", new { @class = "Form-control" })</font>
+                <font size="4" color="black">@Html.DisplayTextFor(x => x.Adet)</font>
+                <br />
+                <hr />
+                <br />
+                <font size="4" color="red">@Html.Label("Ürün Fiyatı:", new { @class = "Form-control" })</font>
+                <font size="4" color="black">@Html.DisplayTextFor(x => x.Fiyat)</font>
+                <br />
+                <hr />
+                <br />
+                <font size="4" color="red">@Html.Label("Toplam Tutar:", new { @class = "Form-control" })</font>
+                <font size="4" color="black">@Html.DisplayTextFor(x => x.ToplamTutar)</font>
+                <br />
+                <hr />
+                <br />
+                <a href="#" class="btn btn-primary">YAZDIR</a>
+            </div>
+        </div>
+</main>
+
+

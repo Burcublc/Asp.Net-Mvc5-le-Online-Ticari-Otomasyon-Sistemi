@@ -1,0 +1,118 @@
+﻿@model  MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.Class3
+@{
+    ViewBag.Title = "Dinamik2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<br />
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+
+        <div class="row">
+
+            <h2 class="panel-title pull-left" style="margin-left:10px;">
+
+                <strong>Order Details</strong>
+
+            </h2>
+
+            <button style="margin-right:10px" class="btn btn-primary pull-right" onclick="addNewOrder()">New Order</button>
+
+        </div>
+
+    </div>
+
+  
+
+        @foreach (var item in Model.deger1)
+
+        {
+
+            <div class="panel-body">
+
+                <table class="table table-striped table-responsive">
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>Seri - Sıra No : @item.FaturaSeriNo - @item.FaturaSiraNo</td>
+
+                            <td>Tarih : @item.FaturaTarih </td>
+
+                            <td>Vergi Dairesi : @item.VergiDairesi</td>
+
+                            <td>Cari : @item.TeslimEden</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="3">
+
+                                <table class="table table-bordered">
+
+                                    <tbody>
+
+                                        <tr>
+
+                                            <th>Açiklama</th>
+
+                                            <th>Miktar</th>
+
+                                            <th>Fiyat</th>
+
+                                            <th>Toplam</th>
+
+                                        </tr>
+
+                                        @{
+
+                                            var totalBill = 0;
+
+                                        }
+
+                                        @foreach (var order in item.FaturaKalems)
+
+                                        {
+
+                                            <tr>
+
+                                                <td>@order.Aciklama</td>
+
+                                                <td>@order.Miktar</td>
+
+                                                <td>@order.BirimFiyat</td>
+
+                                                <td>@order.Tutar</td>
+
+                                            </tr>
+
+                                            totalBill = totalBill + @Convert.ToInt32(order.Tutar);
+
+                                        }
+
+                                    </tbody>
+
+                                </table>
+
+                                <span class="pull-right" style="margin-right:100px;"><strong>Toplam Tutar :  </strong> @totalBill</span>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        }
+
+</div>
+

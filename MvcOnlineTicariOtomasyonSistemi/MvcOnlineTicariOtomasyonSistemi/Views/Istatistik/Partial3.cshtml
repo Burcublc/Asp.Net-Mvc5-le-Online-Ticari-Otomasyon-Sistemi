@@ -1,0 +1,51 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<Urun>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">ÜRÜNLER TABLOSU</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        
+                        <div class="input-group-append">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>ÜRÜN ADI</th>
+                            <th>MARKA ADI</th>
+                            <th>STOK</th>
+                            <th>ALIŞ FİYATI</th>
+                            <th>SATIŞ FİYATI</th>
+                            <th>ÜRÜN RESMİ</th>
+                            <th>KATEGORİ ADI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int sirano=0;}
+                        @foreach (var u in Model)
+                        {
+                        <tr>
+                            <td>@{sirano++;} @sirano</td>
+                            <td>@u.UrunAd</td>
+                            <td>@u.Marka</td>
+                            <td>@u.Stok</td>
+                            <td>@u.AlisFiyati ₺</td>
+                            <td>@u.SatisFiyati ₺</td>
+                            <td>@u.UrunGorsel</td>
+                            <td>@u.Kategori.KategoriAd</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

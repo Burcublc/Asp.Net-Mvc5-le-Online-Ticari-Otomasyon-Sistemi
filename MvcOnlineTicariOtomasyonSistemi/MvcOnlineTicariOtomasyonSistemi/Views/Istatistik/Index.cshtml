@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4"></h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">İstatistikler</li>
+            </ol>
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#1abc9c">
+                        <div class="card-body"><h3>@ViewBag.d1</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>TOPLAM CARİ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#2ecc71">
+                        <div class="card-body"><h3>@ViewBag.d2</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>ÜRÜN SAYISI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#3498db">
+                        <div class="card-body"><h3>@ViewBag.d3</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>PERSONEL SAYISI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#9b59b6">
+                        <div class="card-body"><h3>@ViewBag.d4</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>KATEGORİ SAYISI</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#16a085">
+                        <div class="card-body"><h3>@ViewBag.d5</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>TOPLAM STOK</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#27ae60">
+                        <div class="card-body"><h3>@ViewBag.d6</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>MARKA SAYISI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#2980b9">
+                        <div class="card-body"><h3>@ViewBag.d7</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>KRİTİK SEVİYE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#8e44ad">
+                        <div class="card-body"><h3>@ViewBag.d8</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>MAX. FİYATLI ÜRÜN</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#f1c40f">
+                        <div class="card-body"><h3>@ViewBag.d9</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>MİN. FİYATLI ÜRÜN</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#e67e22">
+                        <div class="card-body"><h3>@ViewBag.d10</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>MAX. MARKA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#e74c3c">
+                        <div class="card-body"><h3>@ViewBag.d11</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>BUZDOLABI STOK SAYISI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#95a5a6">
+                        <div class="card-body"><h3>@ViewBag.d12</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>LAPTOP MARKA SAYISI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#f39c12">
+                        <div class="card-body"><h3>@ViewBag.d13</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>EN ÇOK SATAN ÜRÜN</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#d35400">
+                        <div class="card-body"><h3>@ViewBag.d14</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>KASADAKİ TUTAR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#c0392b">
+                        <div class="card-body"><h3>@ViewBag.d15</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>BUGÜNKÜ SATIŞ MİKTARI </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="background-color:#7f8c8d">
+                        <div class="card-body"><h3>@ViewBag.d16</h3></div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <p>BUGÜNKÜ KASA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

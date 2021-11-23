@@ -1,0 +1,49 @@
+﻿@model MvcOnlineTicariOtomasyonSistemi.Models.Siniflar.Cariler
+
+@using (Html.BeginForm("CariBilgisiGuncelle", "CariPanel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x=>x.CariId)
+    @Html.HiddenFor(x => x.CariMail)               
+    @Html.HiddenFor(x => x.CariSifre)  
+    <div class="form-group row">
+        <label for="inputName" class="col-sm-2 col-form-label">AD</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">SOYAD</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputName2" class="col-sm-2 col-form-label">RESİM</label>
+        <div class="col-sm-10">
+            <input type="file" name="Gorsel" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputExperience" class="col-sm-2 col-form-label">ŞEHİR</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputSkills" class="col-sm-2 col-form-label">MESLEK</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.Meslek, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputSkills" class="col-sm-2 col-form-label">TELEFON</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+            <button class="btn btn-primary">GÜNCELLE</button>
+        </div>
+    </div>
+}

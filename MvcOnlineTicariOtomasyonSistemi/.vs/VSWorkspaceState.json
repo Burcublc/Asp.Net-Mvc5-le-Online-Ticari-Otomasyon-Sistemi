@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MvcOnlineTicariOtomasyonSistemi",
+    "\\MvcOnlineTicariOtomasyonSistemi\\Controllers",
+    "\\MvcOnlineTicariOtomasyonSistemi\\Models",
+    "\\MvcOnlineTicariOtomasyonSistemi\\Models\\Siniflar",
+    "\\MvcOnlineTicariOtomasyonSistemi\\Views",
+    "\\MvcOnlineTicariOtomasyonSistemi\\Views\\Shared"
+  ],
+  "SelectedNode": "\\MvcOnlineTicariOtomasyonSistemi\\Web.config",
+  "PreviewInSolutionExplorer": false
+}

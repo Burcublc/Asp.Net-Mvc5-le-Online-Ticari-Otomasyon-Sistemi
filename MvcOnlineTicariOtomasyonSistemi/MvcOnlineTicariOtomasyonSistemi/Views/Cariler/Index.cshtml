@@ -1,0 +1,69 @@
+﻿@using MvcOnlineTicariOtomasyonSistemi.Models.Siniflar
+@model List<Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Cariler</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                Cariler Listesi
+
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ADI</th>
+                                <th>SOYADI</th>
+                                <th>ŞEHİR</th>
+                                <th>MAİL ADRESİ</th>
+                                <th>SİL</th>
+                                <th>GÜNCELLE</th>
+                                <th>ALIŞVERİŞ HAREKETLERİ</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>ADI</th>
+                                <th>SOYADI</th>
+                                <th>ŞEHİR</th>
+                                <th>MAİL ADRESİ</th>
+                                <th>SİL</th>
+                                <th>GÜNCELLE</th>
+                                <th>ALIŞVERİŞ HAREKETLERİ</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var c in Model)
+                            {
+                                <tr>
+                                    <td>@c.CariAd</td>
+                                    <td>@c.CariSoyad</td>
+                                    <td>@c.CariSehir</td>
+                                    <td>@c.CariMail</td>
+                                    <td><a href="/Cariler/CarilerSil/@c.CariId" class="btn btn-danger">SİL</a></td>
+                                    <td><a href="/Cariler/CarilerGetir/@c.CariId" class="btn btn-success">GÜNCELLE</a></td>
+                                    <td><a href="/Cariler/CarilerDetay/@c.CariId" class="btn btn-warning">ALİVERİŞ HAREKETLERİ</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Cariler/CarilerEkle" class="btn btn-primary">YENİ OLUŞTUR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
